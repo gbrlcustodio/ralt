@@ -10,7 +10,7 @@ import {
 
 import Button from 'react-native-button';
 
-class Welcome extends Component {
+class Thanks extends Component {
   render() {
     return (
       <LinearGradient colors={['rgba(255,94,58,1)', 'rgba(255,42,104,1)']} style={styles.home}>
@@ -18,13 +18,12 @@ class Welcome extends Component {
           <Image source={require('../res/drawable/logo.png')}
            resizeMode='contain' style={{height: 100, marginBottom: 10}}/>
 
-          <Text style={styles.welcome_title}>
-            Bem-vindo ao Ralt
+          <Text style={styles.thanks_title}>
+            Obrigado!
           </Text>
 
-          <Text style={styles.welcome_text}>
-            Mostraremos algumas imagens para poder traçar o seu perfil,
-            escolha aquelas que você mais se identificar.
+          <Text style={styles.thanks_text}>
+            Agora vou lhe sugerir algumas atrações
           </Text>
 
           <Button
@@ -38,14 +37,14 @@ class Welcome extends Component {
                paddingRight: 40
              }
             }
-           style={styles.welcome_button}
+           style={styles.thanks_button}
            onPress={() =>
              this.props.navigator.push({
-               name: 'Question',
-               question: 1
+               name: 'Sugestions',
+               activity: 1
              })
            }>
-            COMEÇAR
+            Partiu?
           </Button>
         </View>
       </LinearGradient>
@@ -58,15 +57,15 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 
-  welcome_title: {
+  thanks_title: {
     fontFamily: 'Roboto',
     fontWeight: 'bold',
     color: '#fff',
-    fontSize: 30,
+    fontSize: 50,
     marginBottom: 40,
   },
 
-  welcome_text: {
+  thanks_text: {
     fontFamily: 'Roboto',
     color: '#fff',
     fontSize: 21.5,
@@ -78,11 +77,11 @@ const styles = StyleSheet.create({
     marginBottom: 50
   },
 
-  welcome_button: {
+  thanks_button: {
     color: '#fff',
     fontSize: 20,
     fontWeight: 'normal'
   }
 })
 
-module.exports = Welcome;
+module.exports = Thanks;
