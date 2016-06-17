@@ -7,6 +7,7 @@
 import React, { Component } from 'react';
 import Welcome from './components/welcome';
 import Question from './components/question';
+import Thanks from './components/thanks';
 import RaltCarousel from './components/raltCarousel';
 import Details from './components/raltDetail'
 
@@ -33,8 +34,10 @@ class Ralt extends Component {
       return <Welcome navigator={navigator}/>
     } else if(route.name === 'Question') {
       return <Question number={route.question} navigator={navigator}/>
+    } else if (route.name==='Thanks') {
+      return <Thanks navigator={navigator}/>
     } else if(route.name === 'Recommendations') {
-      return <RaltCarousel/>
+      return <RaltCarousel navigator={navigator}/>
     }
   }
 }
