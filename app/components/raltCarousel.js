@@ -22,6 +22,10 @@ var IMAGE_URIS = [
   'http://apod.nasa.gov/apod/image/1510/lunareclipse_27Sep_beletskycrop4.jpg',
 ];
 
+var ESTABLISHMENT = [
+  'Amarantha', 'Zeppelin Old Bar', 'BadAss Cafeteria', 'Arcade', 'Pacova'
+];
+
 class RaltCarousel extends Component {
   render() {
     var pages = [];
@@ -38,7 +42,7 @@ class RaltCarousel extends Component {
             style={styles.image}
             source={{uri: IMAGE_URIS[i % BGCOLOR.length]}}
             resizeMode={'cover'}>
-            <Text style={styles.title}>Amarantha</Text>
+            <Text style={styles.title}>{ESTABLISHMENT[i]}</Text>
             <Text style={styles.headline}>Bar e Restaurante</Text>
           </Image>
        </View>
