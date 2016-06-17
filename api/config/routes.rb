@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :recommendation_tags
+  resources :recommendations
+  resources :tags
+  resources :categories
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
