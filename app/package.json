@@ -9,7 +9,9 @@
     "react": "^15.1.0",
     "react-native": "0.27.2",
     "react-native-button": "^1.6.0",
+    "react-native-carousel-control": "^1.0.2",
     "react-native-linear-gradient": "^1.5.12",
+    "react-native-parallax-scroll-view": "^0.18.2",
     "react-native-swiper": "^1.4.5"
   }
 }

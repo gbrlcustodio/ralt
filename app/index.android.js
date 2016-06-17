@@ -8,6 +8,7 @@ import React, { Component } from 'react';
 import Welcome from './components/welcome';
 import Question from './components/question';
 import RaltCarousel from './components/raltCarousel';
+import Details from './components/raltDetail'
 
 import {
   AppRegistry,
@@ -22,7 +23,8 @@ class Ralt extends Component {
       <Navigator
         style={{flex: 1}}
         initialRoute={{ name: 'Welcome' }}
-        renderScene={ this.renderScene }/>
+        renderScene={ this.renderScene }
+        configureScene={() => Navigator.SceneConfigs.FadeAndroid}/>
     );
   }
 
@@ -30,7 +32,8 @@ class Ralt extends Component {
     if(route.name === 'Welcome') {
       return <Welcome navigator={navigator}/>
     } else if(route.name === 'Question') {
-      //return <Question number={route.question} navigator={navigator}/>
+      return <Question number={route.question} navigator={navigator}/>
+    } else if(route.name === 'Recommendations') {
       return <RaltCarousel/>
     }
   }

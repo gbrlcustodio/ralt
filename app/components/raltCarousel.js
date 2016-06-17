@@ -8,6 +8,8 @@ import {
   ViewPagerAndroid
 } from 'react-native';
 
+import Carousel from "react-native-carousel-control";
+
 import LinearGradient from 'react-native-linear-gradient';
 
 var PAGES = 5;
@@ -44,14 +46,9 @@ class RaltCarousel extends Component {
     }
     return (
       <LinearGradient colors={['rgba(255,94,58,1)', 'rgba(255,42,104,1)']} style={styles.container}>
-          <ViewPagerAndroid
-            style={styles.viewPager}
-            initialPage={0}>
+          <Carousel style={styles.viewPager}>
             {pages}
-          </ViewPagerAndroid>
-          <View style={styles.viewTest}>
-              <Text style={styles.title}>Amarantha</Text>
-          </View>
+          </Carousel>
       </LinearGradient>
     );
   }
@@ -61,7 +58,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 100
   },
   title: {
     color: 'white',
@@ -79,8 +77,10 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   viewPager: {
+    marginTop: 100,
     width: 300,
-    height: 400
+    height: 400,
+    alignSelf: 'center'
   },
   viewTest: {
     position: 'absolute',
