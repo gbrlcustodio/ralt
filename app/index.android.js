@@ -6,7 +6,8 @@
 
 import React, { Component } from 'react';
 import Welcome from './components/welcome';
-import Question from './components/question'
+import Question from './components/question';
+import RaltCarousel from './components/raltCarousel';
 
 import {
   AppRegistry,
@@ -30,7 +31,8 @@ class Ralt extends Component {
     if(route.name === 'Welcome') {
       return <Welcome navigator={navigator}/>
     } else if(route.name === 'Question') {
-      return <Question number={route.question} navigator={navigator}/>
+      //return <Question number={route.question} navigator={navigator}/>
+      return <RaltCarousel/>
     }
   }
 }
