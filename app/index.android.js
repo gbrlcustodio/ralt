@@ -22,8 +22,7 @@ class Ralt extends Component {
       <Navigator
         style={{flex: 1}}
         initialRoute={{ name: 'Welcome' }}
-        renderScene={ this.renderScene }
-        configureScene={(route, navigator) =>  Navigator.SceneConfigs.HorizontalSwipeJump} />
+        renderScene={ this.renderScene }/>
     );
   }
 

@@ -1,56 +1,91 @@
 import React, { Component } from 'react';
 // es6
 import {
+  Image,
   StyleSheet,
   Text,
-  View
+  View,
+  ViewPagerAndroid
 } from 'react-native';
 
-import Swiper from 'react-native-swiper';
+import LinearGradient from 'react-native-linear-gradient';
+
+var PAGES = 5;
+var BGCOLOR = ['#fdc08e', '#fff6b9', '#99d1b7', '#dde5fe', '#f79273'];
+var IMAGE_URIS = [
+  'http://apod.nasa.gov/apod/image/1410/20141008tleBaldridge001h990.jpg',
+  'http://apod.nasa.gov/apod/image/1409/volcanicpillar_vetter_960.jpg',
+  'http://apod.nasa.gov/apod/image/1409/m27_snyder_960.jpg',
+  'http://apod.nasa.gov/apod/image/1409/PupAmulti_rot0.jpg',
+  'http://apod.nasa.gov/apod/image/1510/lunareclipse_27Sep_beletskycrop4.jpg',
+];
 
 class RaltCarousel extends Component {
   render() {
-      return (
-        <Swiper style={styles.wrapper} showsButtons={true}>
-          <View style={styles.slide1}>
-            <Text style={styles.text}>Hello Swiper</Text>
+    var pages = [];
+    for (var i = 0; i < PAGES; i++) {
+      var pageStyle = {
+        backgroundColor: 'white',
+        borderRadius: 5,
+        alignItems: 'center',
+        flex:1
+      };
+      pages.push(
+        <View key={i} style={pageStyle} collapsable={false}>
+          <Image
+            style={styles.image}
+            source={{uri: IMAGE_URIS[i % BGCOLOR.length]}}
+            resizeMode={'cover'}>
+            <Text style={styles.title}>Amarantha</Text>
+            <Text style={styles.headline}>Bar e Restaurante</Text>
+          </Image>
+       </View>
+      );
+    }
+    return (
+      <LinearGradient colors={['rgba(255,94,58,1)', 'rgba(255,42,104,1)']} style={styles.container}>
+          <ViewPagerAndroid
+            style={styles.viewPager}
+            initialPage={0}>
+            {pages}
+          </ViewPagerAndroid>
+          <View style={styles.viewTest}>
+              <Text style={styles.title}>Amarantha</Text>
           </View>
-          <View style={styles.slide2}>
-            <Text style={styles.text}>Beautiful</Text>
-          </View>
-          <View style={styles.slide3}>
-            <Text style={styles.text}>And simple</Text>
-          </View>
-        </Swiper>
+      </LinearGradient>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-  },
-  slide1: {
+  container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#9DD6EB',
+    alignItems: 'center'
   },
-  slide2: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#97CAE5',
-  },
-  slide3: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#92BBD9',
-  },
-  text: {
-    color: '#fff',
+  title: {
+    color: 'white',
     fontSize: 30,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
+  },
+  headline: {
+    color: 'white',
+    marginBottom: 20
+  },
+  image: {
+    width: 300,
+    height: 400,
+    justifyContent: 'flex-end',
+    alignItems: 'center'
+  },
+  viewPager: {
+    width: 300,
+    height: 400
+  },
+  viewTest: {
+    position: 'absolute',
+    alignSelf: 'center',
+    backgroundColor: 'black'
   }
 })
 
