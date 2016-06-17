@@ -5,7 +5,7 @@ class CreateRecommendations < ActiveRecord::Migration
       t.string :address
       t.string :number
       t.references :category, index: true, foreign_key: true
-
+      t.string :image
       t.timestamps null: false
     end
   end
